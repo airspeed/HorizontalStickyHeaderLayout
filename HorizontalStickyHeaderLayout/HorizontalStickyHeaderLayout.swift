@@ -51,11 +51,9 @@ public final class HorizontalStickyHeaderLayout: UICollectionViewLayout {
             }
         }
         guard let delegate = delegate else {
-            assertionFailure("Delegate is not set.")
             return
         }
         guard let cv = collectionView else {
-            assertionFailure("CollectionView is not set.")
             return
         }
 
@@ -103,7 +101,6 @@ public final class HorizontalStickyHeaderLayout: UICollectionViewLayout {
     }
     public override var collectionViewContentSize: CGSize {
         guard let cv = collectionView, let delegate = delegate else {
-            assertionFailure("CollectionView or delegate is not set.")
             return .zero
         }
         let maxX = cacheForItems.last?.frame.maxX ?? 0
@@ -123,7 +120,6 @@ public final class HorizontalStickyHeaderLayout: UICollectionViewLayout {
 
     public override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
         guard let cv = collectionView else {
-            assertionFailure("CollectionView is not set.")
             return super.invalidationContext(forBoundsChange: newBounds)
         }
 
@@ -144,7 +140,6 @@ public final class HorizontalStickyHeaderLayout: UICollectionViewLayout {
     /// - returns: UICollectionViewLayoutAttributes for each sections
     private func getAttributesForHeaders() -> [UICollectionViewLayoutAttributes] {
         guard let delegate = delegate, let cv = collectionView else {
-            assertionFailure("CollectionView or delegate is not set.")
             return []
         }
         var attributes = [UICollectionViewLayoutAttributes]()
